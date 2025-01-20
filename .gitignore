@@ -1,5 +1,4 @@
-teht1/build/
-teht1/*.user
+
 Luento2/Mittari/build/
 Luento2/Mittari/*.user
 
@@ -13,3 +12,6 @@ Week2/proseduralEsimerkki/build/
 Week3/perinta_inheritance/build/
 Week3/VirtualFunctionsExample/build/
 Week3/yhteyssuhteet/build/
+
+PankkiSovellus/build/
+HarjoitteluaViikkotehtavaa3Varten/build/
