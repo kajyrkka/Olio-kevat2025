@@ -33,8 +33,9 @@
 
 int main()
 {
-    /*
+   /*
     DerivedClass object;
+
 
     object.frequencyCorrection();
     object.syncronization();
@@ -44,11 +45,11 @@ int main()
     object.BaseClass::transmitter();
     */
 
-
+   ///*
     BaseClass * pBaseClass;
     pBaseClass = new DerivedClass;
 
     delete pBaseClass;
-
+    //*/
     return 0;
 }

@@ -1,4 +1,6 @@
 #include "derivedclass.h"
+#include <iostream>
+using namespace std;
 
 DerivedClass::DerivedClass()
 {
