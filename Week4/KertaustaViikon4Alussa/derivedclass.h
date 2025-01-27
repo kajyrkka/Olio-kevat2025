@@ -1,15 +1,14 @@
 #ifndef DERIVEDCLASS_H
 #define DERIVEDCLASS_H
+#include "baseclass.h"
 
-
-class DerivedClass
+class DerivedClass: public BaseClass
 {
 public:
-  DerivedClass();
-
-
+  DerivedClass(float,float);
+  //laskee suorakaiteen sisalla olevan ympyran alan pii*r^2 kaavalla
+  float calculateArea() override;
 private:
-  float halkaisija;
   float pii = 3.14;
 };
 

@@ -5,10 +5,16 @@ using namespace std;
 
 int main ()
 {
-
-
+  
+ 
 
   BaseClass laskin1(2.0,2.0);
+  laskin1.calculateArea();
+  
+  BaseClass laskin5(100,200);
+  laskin5.calculateArea();
+  
+  
   DerivedClass laskin2(2.0,4.0);
 
   cout << "laatikko ala =" << laskin1.BaseClass::calculateArea() << endl;

@@ -5,7 +5,7 @@ class BaseClass
 {
 public:
   BaseClass (float, float);
-  virtual float calculateArea();
+  virtual float calculateArea(); // suorakaiteen alan
 
 protected:
   float leveys;
