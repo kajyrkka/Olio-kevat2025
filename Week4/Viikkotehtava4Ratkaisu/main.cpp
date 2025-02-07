@@ -4,7 +4,8 @@ using namespace std;
 
 /*
  * Katsotaan tästä tehtävästä kertauksena
- * 1. Miten talletetaan Pankkitili(string) parametri
+ * 1. Miten talletetaan Pankkitili(string)
+ *    parametri
  * 2. Miten nosto ja talletus logiikka menikään
  * 3. Miten perintä ja ylikirjoitus?
  *    Miksi Pankkitilin konstruktori suoritetaan 2x
@@ -31,6 +32,7 @@ int main()
     Asiakas toinen("Bertta",1000);
 
     asiakas.tilisiirto(50,toinen);
+    toinen.showSaldo();
 
     return 0;
 }
