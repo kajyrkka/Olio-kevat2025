@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QDebug>
+#include "temperaturesensor.h"
 
 class Mittari : public QObject
 {
@@ -12,17 +13,18 @@ public:
   ~Mittari();
 
 signals:
-  void readTemperatureSignal();
+  void readT();
   void printSignal(float);
   void finished();
 
 public slots:
   void beginSlot();
-  void temperatureSlot();
+  void temperatureSlot(float);
   void printOK();
 
 private:
   float temperature;
+    TemperatureSensor * sensori;
 };
 
 #endif // MITTARI_H

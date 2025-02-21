@@ -1,5 +1,6 @@
 #include <QCoreApplication>
 #include "mittari.h"
+#include <QDebug>
 #include <QTimer>
 
 /*
@@ -30,19 +31,28 @@ int main (int argc, char *argv[])
   QCoreApplication app (argc, argv);
 
 
-  Mittari * pmittari = new Mittari(&app);
+  Mittari * pmittari = new Mittari();
+
                        // valitetaan isännän osoite
                        // niin mittari tuhoutuu automaattisesti
                        // kun sovellus "kuolee"
 
-  QTimer timer;
 
 
-  QObject::connect(pmittari,SIGNAL(finished()),&app,SLOT(quit()));
-  QObject::connect(&timer,SIGNAL(timeout()),pmittari,SLOT(beginSlot()));
-
-  timer.singleShot(200, pmittari, &Mittari::beginSlot);
 
 
-  return app.exec ();
+  //QObject::connect(pmittari,SIGNAL(finished()),&app,SLOT(quit()));
+  app.connect(pmittari,&Mittari::finished,
+                   &app,&QCoreApplication::quit,
+Qt::QueuedConnection);
+
+
+  pmittari->beginSlot();
+
+  int returnValue = app.exec();
+
+  qDebug()<<"Seuraavaksi tuhoan mittarin";
+  qDebug()<<", jonka pitaisi tuhota automaattisesti myos temperatureSensor";
+  delete pmittari;
+  return returnValue;
 }
