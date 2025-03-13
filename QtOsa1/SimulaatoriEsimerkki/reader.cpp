@@ -9,10 +9,12 @@ Reader::Reader(QWidget *parent)
     ui->setupUi(this);
     connect(ui->card,&QPushButton::clicked,
             this,&Reader::handleCardNum);
+    qDebug()<<"Readerin luotu";
 }
 
 Reader::~Reader()
 {
+    qDebug()<<"Readerin tuhottu";
     delete ui;
 }
 

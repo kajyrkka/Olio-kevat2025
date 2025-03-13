@@ -11,14 +11,17 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    pinui.cpp \
     reader.cpp
 
 HEADERS += \
     mainwindow.h \
+    pinui.h \
     reader.h
 
 FORMS += \
     mainwindow.ui \
+    pinui.ui \
     reader.ui
 
 # Default rules for deployment.

@@ -12,9 +12,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->card,&QPushButton::clicked,
             this,&MainWindow::handleCardButton);
 
-    reader = new Reader(this);
-    connect(reader,&Reader::sendCardNum,
-            this,&MainWindow::handleCardNum);
+    connect(ui->pin,&QPushButton::clicked,
+            this,&MainWindow::handlePinButton);
+
+
 
 
 
@@ -23,10 +24,15 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete reader;
+    delete pinui;
 }
 
 void MainWindow::handleCardButton()
 {
+    reader = new Reader(this);
+    connect(reader,&Reader::sendCardNum,
+            this,&MainWindow::handleCardNum);
     qDebug()<<"Card Button pressed";
     //reader->show();
     reader->open();
@@ -37,13 +43,35 @@ void MainWindow::handleCardButton()
 
 void MainWindow::handlePinButton()
 {
-
+    pinui = new Pinui(this);
+    connect(pinui,&Pinui::sendPinNum,
+            this,&MainWindow::handlePinNum);
+    connect(pinui,&Pinui::PinuiTimeOut,
+            this,&MainWindow::handlePinuiTimeOut);
+    qDebug()<<"Pin Button pressed";
+    pinui->open();
 }
-
 void MainWindow::handleCardNum(QString s)
 {
    qDebug()<<"Vastaanotettiin kortin numero";
     ui->cardNum->setText(s);
+   reader->close();
+    delete reader;
+}
+
+void MainWindow::handlePinNum(QString s)
+{
+    qDebug()<<"Vastaanotettiin pin numero";
+    ui->pinNum->setText(s);
+    pinui->close();
+    delete pinui;
+}
+
+void MainWindow::handlePinuiTimeOut()
+{
+    qDebug()<<"Vastaanotettiin timeout signaali";
+    pinui->close();
+    delete pinui;
 }
 
 
