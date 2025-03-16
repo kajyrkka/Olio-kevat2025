@@ -43,7 +43,7 @@ void MainWindow::handleCardButton()
 
 void MainWindow::handlePinButton()
 {
-    pinui = new Pinui(this);
+   51
     connect(pinui,&Pinui::sendPinNum,
             this,&MainWindow::handlePinNum);
     connect(pinui,&Pinui::PinuiTimeOut,
