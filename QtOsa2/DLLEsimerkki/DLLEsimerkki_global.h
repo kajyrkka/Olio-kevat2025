@@ -1,0 +1,12 @@
+#ifndef DLLESIMERKKI_GLOBAL_H
+#define DLLESIMERKKI_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(DLLESIMERKKI_LIBRARY)
+#define DLLESIMERKKI_EXPORT Q_DECL_EXPORT
+#else
+#define DLLESIMERKKI_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // DLLESIMERKKI_GLOBAL_H
